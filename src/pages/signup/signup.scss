@@ -1,0 +1,22 @@
+page-signup {
+	.form-signup{
+		background: #f1f1f1;
+		label{
+			color: #757575;
+			font-weight: bold;
+			padding-bottom: 7px;
+			display: block;
+		}
+		ion-input{
+			background: #fff;
+			margin-bottom: 15px;
+			border-radius: 20px;
+			padding: 0px 10px;
+			font-weight: bold;
+		}
+		.text-input{
+			margin-top: 10px !important;
+			margin-bottom: 10px !important;
+		}
+	}
+}

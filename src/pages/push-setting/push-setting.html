@@ -1,0 +1,11 @@
+<ion-content padding class="food-detail">
+  <ion-row class="close-modal" (click)="dismiss()"></ion-row>
+  <ion-row class="main-modal" col-2>
+    <div class="wrapper">
+      	<ion-item>
+	        <ion-label>{{'enable' | translate}}</ion-label>
+	        <ion-toggle [(ngModel)]="toggle"  (ionChange)="togglePush()"></ion-toggle>
+	    </ion-item>
+    </div>
+  </ion-row>
+</ion-content>

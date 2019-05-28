@@ -1,0 +1,104 @@
+page-cart {
+	.content{
+		background: #fafafa;
+	}
+	ion-item{
+		ion-thumbnail {
+			min-height: 50px !important;
+			min-width: 50px !important;
+			img{
+				width: 50px !important;
+				height: 50px !important;
+			}
+		}
+		h2{
+			color: #212739;
+			font-family: cookie;
+			font-size: 2.5rem;
+		}
+		.close{
+			color: #fff;
+			margin-right: 0 !important;
+			ion-icon.icon-wp, ion-icon.icon-ios{
+				font-size: 2.2rem !important;
+			}
+		}
+		p{
+			display: flex;
+			align-items: center;
+			font-size: 1.2rem !important;
+			color: #212739;
+			input{
+				width: 40px;
+				// border: none;
+				height: 20px;
+				padding: 0;
+				text-align: center;
+				font-weight: bold;
+			}
+			button{
+				margin: 0 10px !important;
+				height: 1.8rem !important;
+				ion-icon{
+					color: #212739;
+				}
+			}
+		}
+	}
+	.payment{
+		margin-bottom: 30px;
+		.fee{
+			width: 100%;
+			display: block;
+			margin: 5px 0px;
+			span:first-child{
+				font-weight: bold;
+				color: #212739;
+			}
+			span:last-child{
+				float: right;
+				font-weight: bold;
+				// font-family: cookie;
+				color: #e91e3c;
+			}
+			&.total-pay{
+				margin-top: 10px;
+				font-size: 2.4rem;
+			}
+		}
+		button{
+			margin-top: 30px;
+			background: #e91e3c;
+			&:last-child{
+				margin-top: 15px;
+				background: #212739;
+			}
+		}
+	}
+	.no-item{
+		margin-top: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		b{
+			text-align: center;
+			width: 100%;
+			display: block;
+			font-size: 4rem;
+			font-family: cookie;
+			color: #e91e3c;
+		}
+		h4{
+			text-align: center;
+			font-size: 2rem;
+		}
+		p{
+			padding: 0px 40px;
+			font-size: 1.3rem;
+			text-align: center;
+			color: #7e7e7e;
+		}
+	}
+	
+}

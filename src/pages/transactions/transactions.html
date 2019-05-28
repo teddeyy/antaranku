@@ -1,0 +1,88 @@
+<ion-header>
+<ion-navbar>
+<button ion-button menuToggle>
+	<ion-icon name="menu"></ion-icon>
+</button>
+<ion-title>{{'transactions' | translate}}</ion-title>
+<div class="group-btn-nav">
+	<button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+		<ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+	</button>
+	<button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+		<ion-icon name="search"></ion-icon>
+	</button>
+</div>
+</ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="list == 0" padding>
+<div class="no-item">
+	<span>
+		<b>{{'oops' | translate}}</b>
+		<h4>{{'you_have_not_any_transactions' | translate}}</h4>
+		<p>{{'come_to_store' | translate}}</p>
+	</span>
+</div>
+
+<ion-fab bottom right>
+<button ion-fab>{{'contact' | translate}}</button>
+<ion-fab-list side="left">
+<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+</ion-fab-list>
+</ion-fab>
+</ion-content>
+
+
+<ion-content *ngIf="list != 0">
+
+<ion-list>
+<ion-item *ngFor="let item of list">
+<p class="name">{{'order_no' | translate}}: #{{item.id}}</p>
+<p class="phone">{{'phone' | translate}}: {{item.phone}}</p>
+<p class="address">{{'address' | translate}}: {{item.address}}</p>
+
+<h3 class="section-name">{{'items' | translate}}</h3>
+
+<div class="item-food" *ngFor="let lst_food of item.lst_food_order">
+	<ion-icon name=""></ion-icon>
+	{{lst_food.name}}(
+
+	{{currencyProvider.formatMoney(lst_food.price)}}
+
+	) x {{lst_food.quantity}}
+	<div *ngIf="lst_food.extras_name">&nbsp;Extras: {{lst_food.extras_name}}</div>
+</div>
+
+<h3 class="section-name">{{'total_include_tax' | translate}}:&nbsp;
+
+{{currencyProvider.formatMoney(item.total)}}
+
+</h3>
+
+
+<ion-row>
+<p class="status-success" style="color: " *ngIf="item.received == 1"> {{'delivered' | translate}}</p>
+<p class="status-received" *ngIf="item.received == 0">{{'pending' | translate}}</p>
+</ion-row>
+</ion-item>
+</ion-list>
+
+
+
+<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+<ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+
+
+<ion-fab bottom right>
+<button ion-fab>{{'contact' | translate}}</button>
+<ion-fab-list side="left">
+<button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+<button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+<button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+</ion-fab-list>
+</ion-fab>
+</ion-content>

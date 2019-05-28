@@ -1,0 +1,110 @@
+<ion-header>
+<ion-navbar>
+<button ion-button menuToggle>
+  <ion-icon name="menu"></ion-icon>
+</button>
+<ion-title> {{'home' | translate}}</ion-title>
+<div class="group-btn-nav">
+  <button clear small color="light" ion-button class="cart-nav" (click)="openCartPage()">
+    <ion-icon name="cart"></ion-icon><p>{{total_card}}</p>
+  </button>
+  <button clear small color="light" ion-button class="search-nav" (click)="openSearchPage()">
+    <ion-icon name="search"></ion-icon>
+  </button>
+</div>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-row class="banner">
+<img class="banner-bg" src="assets/img/home-banner.jpg" alt="">
+<div class="slogan">
+  <h3> {{'app_name' | translate}}</h3>
+  <p>{{'intro' | translate}}</p>
+  <button color="light" ion-button (click)="openCatPage()"> {{'our_menu' | translate}}</button>
+</div>
+<img class="decor" src="assets/img/torn.png" alt="">
+</ion-row>
+
+<ion-row class="lst-food">
+<div class="name-st" padding>
+  <b>{{'special_food_items' | translate}}</b>
+  <h4> {{'discover_now' | translate}}</h4>
+  <p>Thousands of delicious food are waiting for you to explore below, quick order to go.</p>
+</div>
+
+<ion-card *ngFor="let lst of list">
+<img (click)="openPage(lst.id)" src="{{lst.image}}"/>
+<div class="sale_off" *ngIf="lst.discount_percent != null">
+  <img class="badge" src="assets/img/badge.png" alt="">
+  <p><b>Sale</b><br>-{{('0' + lst.discount_percent).slice(-2)}}<small> %</small></p>
+</div>
+<ion-card-content (click)="openPage(lst.id)">
+<ion-card-title>{{lst.name}}</ion-card-title>
+<p class="price" *ngIf="lst.discount_percent == null || lst.discount_percent == 0">
+
+{{currencyProvider.formatMoney(lst.price)}} 
+
+</p>
+<p class="price_sale_off" *ngIf="lst.discount_percent != null && lst.discount_percent != 0">
+
+  <span class="price old-price">
+
+    {{currencyProvider.formatMoney(lst.price)}}
+  
+  </span>
+
+
+    <span class="price">
+
+    {{currencyProvider.formatMoney(lst.price - lst.price*lst.discount_percent/100)}}
+
+  </span>
+</p>
+<p>{{lst.description.substr(0, 150)+'...'}}</p>
+</ion-card-content>
+<ion-row no-padding>
+<ion-col col-4>
+<button clear icon-left ion-button small (click)="modalAddCart(lst)">
+  <ion-icon name="cart"></ion-icon> {{'add_cart' | translate}}
+</button>
+</ion-col>
+<ion-col col-4 text-center>
+<button clear icon-left ion-button small [ngClass]="lst.favoriest ? 'active':''" (click)="addFavoriest(lst)">
+  <ion-icon name="heart"></ion-icon>Favorites
+</button>
+</ion-col>
+<ion-col col-4 text-right>
+<button clear icon-left ion-button small (click)='share(lst)'>
+  <ion-icon name="share-alt"></ion-icon> {{'share' | translate}}
+</button>
+</ion-col>
+</ion-row>
+</ion-card>
+</ion-row>
+
+<ion-infinite-scroll (ionInfinite)="loadMore($event)">
+<ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+
+<ion-row padding class="send-mail">
+<b> {{'send_us_contact' | translate}}</b>
+<h4> {{'send_messages' | translate}}</h4>
+<p> {{'send_email_quote' | translate}}</p>
+<button color="light" icon-right ion-button (click)="send_message(email)">
+ {{'send' | translate}}
+ <ion-icon name="send"></ion-icon>
+</button>
+</ion-row>
+
+<ion-fab bottom right>
+  <button ion-fab>{{'contact' | translate}}</button>
+  <ion-fab-list side="left">
+    <button ion-fab (click)="twitter()"><ion-icon name="logo-twitter"></ion-icon></button>
+    <button ion-fab (click)="facebook()"><ion-icon name="logo-facebook"></ion-icon></button>
+    <button ion-fab (click)="call()"><ion-icon name="call"></ion-icon></button>
+  </ion-fab-list>
+</ion-fab>
+
+</ion-content>

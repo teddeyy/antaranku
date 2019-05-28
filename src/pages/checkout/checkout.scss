@@ -1,0 +1,65 @@
+page-checkout {
+	.checkout{
+		h4{
+			margin-top: 30px !important;
+			color: #212739;
+		}
+		p{
+			font-size: 1.3rem;
+			color: #7e7e7e;
+			margin-top: 0;
+		}
+		ion-list{
+			margin-top: 10px !important;
+		}
+		ion-item{
+			box-shadow: none !important;
+			padding-left: 10px;
+			border: none !important;
+			background: none !important;
+			.item-inner{
+				border: none !important;
+				box-shadow: none !important;
+				.input-wrapper{
+					padding-bottom: 5px;
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+			}
+		}
+		ion-label{
+			color: #7e7e7e;
+			margin-bottom: 8px !important;
+			font-size: 1.3rem;
+		}
+		ion-input, ion-textarea{
+			font-size: 1.3rem;
+			font-weight: 500;
+			background: #fff;
+			border-radius: 16px;
+			padding-left: 15px;
+			padding-right: 15px;
+			box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.1);
+		}
+		textarea{
+			height: 100px;
+		}
+		.err_show{
+			width: 100%;
+			margin-top: 35px;
+			text-align: center;
+			font-weight: 500;
+			p{
+				font-size: 1.3rem !important;
+			}
+		}
+		.err{
+			padding-top: 5px;
+			padding-bottom: 0;
+			width: 100%;
+			font-size: 1.2rem;
+			color: #e91e3c;
+			margin-bottom: 5px;
+		}
+	}
+}
