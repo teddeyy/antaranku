@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Pizza</name>
-    <description>An awesome Ionic/Cordova app.</description>
+    <description>Antaranku</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
@@ -9,9 +9,9 @@
     <allow-navigation href="http://192.168.100.11:8100" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <allow-intent href="tel:*" />
-    <allow-intent href="sms:*" />
-    <allow-intent href="mailto:*" />
+    <allow-intent href="tel:0987655" />
+    <allow-intent href="sms:0987655" />
+    <allow-intent href="mailto:teddy@teddy.com" />
     <allow-intent href="geo:*" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
@@ -25,8 +25,8 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <config-file parent="/resources" target="./res/values/strings.xml">
-            <string name="fb_app_id">1552011421763113</string>
-            <string name="fb_app_name">ionicsourcecode</string>
+            <string name="fb_app_id">15520114545413</string>
+            <string name="fb_app_name">teddy</string>
         </config-file>
         <preference name="loadUrlTimeoutValue" value="700000" />
         <allow-intent href="market:*" />
